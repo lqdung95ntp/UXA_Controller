@@ -1,0 +1,7 @@
+Control UXA90 through wifi and ROS
+
+Step 1: Copy/Paste all folder to cakin workspace.
+Step 2: Connect tablet/laptop/smartphone and UXA90 to a wifi.
+Step 3: run node RobotHead/RobotHead.launch.
+Step 4: Go to /catkin_ws/src/roslibjs/examples/ and run file RobotHead1.html to communicate with UXA through wifi.
+Detail will be list in Guide.docx file.

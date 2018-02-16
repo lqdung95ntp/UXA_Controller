@@ -1,0 +1,25 @@
+<launch>
+    <include 
+        file="$(find usb_cam)/launch/usb_cam-test.launch"/>
+    <include
+        file="$(find rosbridge_server)/launch/rosbridge_websocket.launch"/>
+    <!--<include
+        file="$(find mjpeg_server)/src/mjpeg_server.cpp"/>-->
+    <arg 
+        name="lbp_face_detect"
+         default="$(find RobotHead)/include/RobotHead/lbpcascade_frontalface.xml"/>
+    <arg
+        name="haar_face_detect"
+        default="$(find RobotHead)/include/RobotHead/haarcascade_frontalface_alt.xml"/>
+    <arg
+        name="trainer"
+        default="$(find RobotHead)/include/RobotHead/trainer.yml"/>
+    <node 
+        pkg="RobotHead" type="EyeRobot" name="EyeRobot"
+        args="$(arg lbp_face_detect)
+              $(arg haar_face_detect)"
+        output="screen"/>
+    <node
+        pkg="mjpeg_server" type="mjpeg_server" name="mjpeg_server"
+        />
+</launch>
